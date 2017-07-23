@@ -1533,6 +1533,24 @@ describe("StringField", () => {
 
       expect(node.querySelector("#custom")).to.exist;
     });
+
+    it("should render the widget with the accept attribute", () => {
+      const { node } = createFormComponent({
+        schema: {
+          type: "string",
+          format: "data-url",
+        },
+        uiSchema: {
+          "ui:options": {
+            accept: "image/*",
+          },
+        },
+      });
+
+      expect(node.querySelector("[type=file]").getAttribute("accept")).eql(
+        "image/*"
+      );
+    });
   });
 
   describe("Label", () => {

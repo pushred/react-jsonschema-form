@@ -16,8 +16,22 @@ module.exports = {
           format: "data-url",
         },
       },
+      acceptOption: {
+        type: "array",
+        title: "Image files only",
+        items: {
+          type: "string",
+          format: "data-url",
+        },
+      },
     },
   },
-  uiSchema: {},
+  uiSchema: {
+    acceptOption: {
+      "ui:options": {
+        accept: "image/*",
+      },
+    },
+  },
   formData: {},
 };
